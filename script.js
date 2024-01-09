@@ -32,9 +32,14 @@ const updateDateTime = () => {
     }, 1000);
 }
 
+updateDateTime(); //start time cycle
+
+const body = document.querySelector('body');
+
 const backgroundControl = (() => {
     let interval = null;
     let timeInterval = 0;
+    let i = 0;
     const morningRef = ['morning1.jpg', 'morning2.jpg'];
     const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg'];
     const eveningRef = ['evening1.jpg', 'evening2.jpg'];
@@ -56,19 +61,29 @@ const backgroundControl = (() => {
         else return 3;
     });
     const changeBackground = () => {
-
+        body.style.backgroundImage = `url(images/${randomizedRef[timeInterval][i]})`;
+        if(i < randomizedRef[timeInterval].length - 1) i += 1;
+        else i = 0;
     }
     const startInterval = () => {
-
+        interval = setInterval(changeBackground, 10000); //Change to higher interval later
     };
     const endInterval = () => {
-
+        clearInterval(interval);
+        interval = null;
     }
 
     //Code Run:
-    timeInterval = determineTimeInterval(new Date().getHours());
-    console.log(timeInterval);
+    timeInterval = determineTimeInterval(new Date().getHours()); //Sets starting BG Image time pool
+    //Randomizes time pool elements and pushes it into 1 big 2d array
+    const randomizedRef = [];
+    randomizedRef.push(shuffle(morningRef));
+    randomizedRef.push(shuffle(afternoonRef));
+    randomizedRef.push(shuffle(eveningRef));
+    randomizedRef.push(shuffle(nightRef));
+    console.log(randomizedRef);
+
+    changeBackground(); //Starting Image
+    startInterval();
 
 })();
-
-updateDateTime();
