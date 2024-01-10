@@ -56,8 +56,8 @@ const backgroundControl = (() => {
     //Morning = 0, Afternoon = 1, Evening = 2, Night = 3
     const determineTimeInterval = ((x) => {
         if(x >= 5 && x < 12) return 0;
-        else if (x >= 12 && x < 5) return 1;
-        else if (x >= 5 && x <= 7) return 2;
+        else if (x >= 12 && x < 17) return 1;
+        else if (x >= 17 && x <= 19) return 2;
         else return 3;
     });
     const changeBackground = () => {
