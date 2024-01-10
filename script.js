@@ -45,7 +45,7 @@ const backgroundControl = (() => {
     const morningRef = ['morning1.jpg', 'morning2.jpg'];
     const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg'];
     const eveningRef = ['evening1.jpg', 'evening2.jpg'];
-    const nightRef = ['night1.jpg', 'night2.jpg', 'night3.webp'];
+    const nightRef = ['night1.jpg', 'night2.jpg', 'night3.webp', 'night4.jpg', 'night5.webp', 'night6.jpg', 'night7.jpg'];
 
     //Functions:
     const shuffle = ((array) => {
@@ -81,7 +81,7 @@ const backgroundControl = (() => {
         }
     }
     const startInterval = () => {
-        interval = setInterval(changeBackground, 5000); //Change to higher interval later
+        interval = setInterval(changeBackground, 10000); //Change to higher interval later
     };
     const endInterval = () => {
         clearInterval(interval);
