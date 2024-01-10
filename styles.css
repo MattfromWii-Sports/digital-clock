@@ -126,5 +126,7 @@ body {
 .preload {
     position: absolute;
     opacity: 0;
+    height: 1px;
+    width: 1px;
     background: url(images/morning1.jpg), url(images/morning2.jpg), url(images/afternoon1.jpg), url(images/afternoon2.jpg), url(images/evening1.jpg), url(images/evening2.jpg), url(images/night1.jpg), url(images/night2.jpg), url(images/night3.webp);
 }

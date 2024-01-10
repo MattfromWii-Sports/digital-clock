@@ -38,8 +38,9 @@ const body = document.querySelector('body');
 
 const backgroundControl = (() => {
     let interval = null;
-    let timeInterval = 0;
-    let i = 0;
+    let timeInterval = 0, i = 0;
+    let timeAltered = false;
+    let oldTimeInterval = null;
     //Background Images
     const morningRef = ['morning1.jpg', 'morning2.jpg'];
     const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg'];
@@ -56,15 +57,28 @@ const backgroundControl = (() => {
     });
     //Morning = 0, Afternoon = 1, Evening = 2, Night = 3
     const determineTimeInterval = ((x) => {
-        if(x >= 5 && x < 12) return 0;
-        else if (x >= 12 && x < 17) return 1;
-        else if (x >= 17 && x <= 19) return 2;
-        else return 3;
+        if (x >= 5 && x < 12) {return 0;}
+        else if (x >= 12 && x < 17) {return 1;}
+        else if (x >= 17 && x <= 19) {return 2;}
+        else {return 3;}
     });
     const changeBackground = () => {
+        if (timeAltered === false && timeInterval !== determineTimeInterval(new Date().getHours())) {
+            timeInterval = determineTimeInterval(new Date().getHours());
+            i = 0;
+        } else if (timeAltered === true && oldTimeInterval !== determineTimeInterval(new Date().getHours())) { 
+            //Above checks if user time interval has changed (ex. morning -> afternoon)
+            timeInterval = determineTimeInterval(new Date().getHours());
+            oldTimeInterval = null;
+            timeAltered = false;
+        }
+        //Checks if time interval changes, overrides user cycle back to normal
         body.style.backgroundImage = `url(images/${randomizedRef[timeInterval][i]})`;
-        if(i < randomizedRef[timeInterval].length - 1) i += 1;
-        else i = 0;
+        if(i < randomizedRef[timeInterval].length - 1) {
+            i += 1;
+        } else {
+            i = 0;
+        }
     }
     const startInterval = () => {
         interval = setInterval(changeBackground, 5000); //Change to higher interval later
@@ -84,9 +98,14 @@ const backgroundControl = (() => {
     });
     cycle.addEventListener('click', () => {
         endInterval();
+        timeAltered = true;
+        oldTimeInterval = determineTimeInterval(new Date().getHours());
         i = 0;
-        if(timeInterval === 3) timeInterval = 0;
-        else timeInterval += 1;
+        if(timeInterval === 3) {
+            timeInterval = 0;
+        } else {
+            timeInterval += 1;
+        }
         cycle.textContent = timePool[timeInterval];
         changeBackground();
         startInterval();
