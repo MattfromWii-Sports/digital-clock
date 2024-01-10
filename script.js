@@ -40,6 +40,7 @@ const backgroundControl = (() => {
     let interval = null;
     let timeInterval = 0;
     let i = 0;
+    //Background Images
     const morningRef = ['morning1.jpg', 'morning2.jpg'];
     const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg'];
     const eveningRef = ['evening1.jpg', 'evening2.jpg'];
@@ -66,15 +67,34 @@ const backgroundControl = (() => {
         else i = 0;
     }
     const startInterval = () => {
-        interval = setInterval(changeBackground, 10000); //Change to higher interval later
+        interval = setInterval(changeBackground, 5000); //Change to higher interval later
     };
     const endInterval = () => {
         clearInterval(interval);
         interval = null;
     }
 
+    const timePool = ['Morning', 'Afternoon', 'Evening', 'Night']; //For cycle button
+    const cycle = document.querySelector('.cycle');
+    const next = document.querySelector('.next');
+    next.addEventListener('click', () => {
+        endInterval();
+        changeBackground()
+        startInterval();
+    });
+    cycle.addEventListener('click', () => {
+        endInterval();
+        i = 0;
+        if(timeInterval === 3) timeInterval = 0;
+        else timeInterval += 1;
+        cycle.textContent = timePool[timeInterval];
+        changeBackground();
+        startInterval();
+    });
+
     //Code Run:
     timeInterval = determineTimeInterval(new Date().getHours()); //Sets starting BG Image time pool
+    cycle.textContent = timePool[timeInterval]; //Sets starting cycle
     //Randomizes time pool elements and pushes it into 1 big 2d array
     const randomizedRef = [];
     randomizedRef.push(shuffle(morningRef));
