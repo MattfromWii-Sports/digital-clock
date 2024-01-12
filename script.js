@@ -72,6 +72,7 @@ const backgroundControl = (() => {
             oldTimeInterval = null;
             timeAltered = false;
         }
+        cycle.textContent = timePool[timeInterval];
         //Checks if time interval changes, overrides user cycle back to normal
         body.style.backgroundImage = `url(images/${randomizedRef[timeInterval][i]})`;
         if(i < randomizedRef[timeInterval].length - 1) {
@@ -81,7 +82,7 @@ const backgroundControl = (() => {
         }
     }
     const startInterval = () => {
-        interval = setInterval(changeBackground, 10000); //Change to higher interval later
+        interval = setInterval(changeBackground, 60000); //Change to higher interval later
     };
     const endInterval = () => {
         clearInterval(interval);
