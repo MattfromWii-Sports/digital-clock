@@ -40,6 +40,9 @@ Inspired by project 1 of [JavaScript King's](https://www.youtube.com/@JavaScript
     <li>
     <a href="https://unsplash.com/@freestocks?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">freestocks</a> found <a href="https://unsplash.com/photos/silhouette-of-trees-ebZUZ1MiVnU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">here</a>
     </li>
+    <li>
+    <a href="https://unsplash.com/@lyovon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Levon Vardanyan</a> found <a href="https://unsplash.com/photos/lighted-street-lights-at-night-ihUVzI4f5To?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">here</a>
+    </li>
   
 </ul>
 
@@ -72,6 +75,9 @@ Inspired by project 1 of [JavaScript King's](https://www.youtube.com/@JavaScript
     </li>
     <li>
     Various wallpapers derived from <strong>The Lord of the Rings</strong> trilogy sourced <a href="https://imgur.com/a/4aRnm?gallery?">here</a>
+    </li>
+    <li>
+    <a href="https://www.artstation.com/aenamiart">Alena Aenami</a> found <a href="https://www.artstation.com/artwork/LyG3K">here</a>
     </li>
 </ul>
   

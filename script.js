@@ -42,10 +42,10 @@ const backgroundControl = (() => {
     let timeAltered = false;
     let oldTimeInterval = null;
     //Background Images
-    const morningRef = ['morning1.jpg', 'morning2.jpg', 'morning3.jpg', 'morning4.jpg'];
-    const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg', 'afternoon3.jpg', 'afternoon4.jpeg'];
-    const eveningRef = ['evening1.jpg', 'evening2.jpg', 'evening3.jpg', 'evening4.jpg'];
-    const nightRef = ['night1.jpg', 'night2.jpg', 'night3.webp', 'night4.jpg', 'night5.jpg'];
+    const morningRef = ['morning1.jpg', 'morning2.jpg', 'morning3.jpg', 'morning4.jpg', 'morning5.jpg'];
+    const afternoonRef = ['afternoon1.jpg', 'afternoon2.jpg', 'afternoon3.jpg', 'afternoon4.jpeg', 'afternoon5.jpeg'];
+    const eveningRef = ['evening1.jpg', 'evening2.jpg', 'evening3.jpg', 'evening4.jpg', 'evening5.jpg'];
+    const nightRef = ['night1.jpg', 'night2.jpg', 'night3.webp', 'night4.jpg', 'night5.jpg', 'night6.jpg'];
 
     //Functions:
     const shuffle = ((array) => {
